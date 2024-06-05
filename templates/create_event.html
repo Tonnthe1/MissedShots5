@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>Create Event</h2>
+    <form method="POST" action="{{ url_for('create_event') }}" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="name">Event Name</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="address">Event Address</label>
+            <input type="text" id="address" name="address">
+        </div>
+        <div class="form-group">
+            <label for="time">Event Time</label>
+            <input type="datetime-local" id="time" name="time" required>
+        </div>
+        <div class="form-group">
+            <label for="image">Event Image</label>
+            <input type="file" id="image" name="image">
+        </div>
+        <div class="form-group">
+            <label for="tags">Tags</label>
+            <select id="tags" name="tags" multiple>
+                <option value="Free">Free</option>
+                <option value="Networking">Networking</option>
+                <option value="Technology">Technology</option>
+                <option value="Health">Health</option>
+                <option value="Education">Education</option>
+                <option value="Workshop">Workshop</option>
+                <option value="Seminar">Seminar</option>
+            </select>
+        </div>
+        <button type="submit">Create Event</button>
+        <a href="{{ url_for('home') }}" class="return-home-button">Return to Home</a>
+    </form>
+</div>
+{% endblock %}
